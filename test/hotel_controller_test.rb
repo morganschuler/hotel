@@ -172,18 +172,3 @@ describe Hotel::HotelController do
   end
 end
 
-
-# it "is an instance of HotelController" do
-#   controller = build_hotel_controller
-#   expect(controller).must_be_kind_of Hotel::HotelController
-# end
-
-# it "it establishes the base data structures when instantiated" do
-#   [:reservations]
-# end
-
-# def build_test_dispatcher
-#   return Hotel::HotelController.new(
-#     directory: TEST_DATA_DIRECTORY
-#   )
-# end
