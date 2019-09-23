@@ -1,12 +1,10 @@
-# require 'date'
-require_relative "reservation"
-require_relative "hotel_controller"
+require 'date'
 
 module Hotel
   class DateRange
     attr_accessor :start_date, :end_date
 
-     def initialize(start_date, end_date)
+    def initialize(start_date, end_date)
       @start_date = start_date
       @end_date = end_date
 
@@ -20,7 +18,7 @@ module Hotel
     # end
 
     def in_date_range?(date)
-      if self.to_range.include?(@start_date..@end_date)
+      if self.to_range.include?(@start_date...@end_date)
         return true
       else
         return false
@@ -33,8 +31,8 @@ module Hotel
           if self.to_range.include?(date)
             return true
           end
-        return false
         end
+        return false
     end
 
 
