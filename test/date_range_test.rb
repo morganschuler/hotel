@@ -22,11 +22,11 @@ describe "Hotel::DateRange class" do
   end
 
   it "returns a false if the date is not included in the range" do
-   expect(@daterange.is_included?("2019-10-25")).must_equal false
+   expect(@DateRange.in_date_range?("2019-10-25")).must_equal false
   end
 
   it "returns a true if the date is included in the range" do
-    expect(@daterange.is_included?("2019-10-07")).must_equal true
+    expect(@DateRange.in_date_range?("2019-10-07")).must_equal true
   end
 
   it "returns the correct date count" do
