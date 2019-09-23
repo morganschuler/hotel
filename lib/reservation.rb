@@ -6,12 +6,11 @@ module Hotel
   
   class Reservation
     STANDARD_ROOM_PRICE = 200
+    attr_reader :start_date, :end_date, :date_range :room :total_cost
 
-    attr_reader :room
-
-    def initialize(start_date, end_date, room)
+    def initialize(start_date:, end_date:, room:nil)
       @room = room
-      @date_range = DateRange.new(start_date, end_date)
+      @date_range = Hotel::DateRange.new(start_date, end_date)
     end
     
     def start_date
