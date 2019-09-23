@@ -15,9 +15,9 @@ module Hotel
       end
     end
 
-    def in_date_range?(date)
-      return date >= start_date && date <= end_date
-    end
+    # def in_date_range?(date)
+    #   return date >= start_date && date <= end_date
+    # end
 
     def in_date_range?(date)
       if self.to_range.include?(@start_date..@end_date)
@@ -26,6 +26,17 @@ module Hotel
         return false
       end
     end
+
+    def dates_overlap?(start_date, end_date)
+      reservation_array = (Date(start_date)...Date(end_date)).to_a
+        reservation_array.each do |date|
+          if self.to_range.include?(date)
+            return true
+          end
+        return false
+        end
+    end
+
 
     def nights
       return (@end_date - @start_date).to_i
