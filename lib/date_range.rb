@@ -19,8 +19,16 @@ module Hotel
       return date >= start_date && date <= end_date
     end
 
+    def in_date_range?(date)
+      if self.to_range.include?(@start_date..@end_date)
+        return true
+      else
+        return false
+      end
+    end
+
     def nights
-      return (@end_date) - (@start_date)
+      return (@end_date - @start_date).to_i
     end
 
   end
