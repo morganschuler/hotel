@@ -33,7 +33,15 @@ describe "Hotel::DateRange class" do
     expect(@DateRange.nights).must_equal 6
   end
 
-   
+  it "returns true when the reservation overlaps the range" do
+    expect(@DateRange.dates_overlap?("2019-10-05", "2019-10-11")).must_equal true
+  end
+
+  it "returns false when the reservation doesn't overlap with the range" do
+    expect(@DateRange.dates_overlap?("2019-10-12", "2019-10-15")).must_equal false
+  end
+
+
   end
 end
 

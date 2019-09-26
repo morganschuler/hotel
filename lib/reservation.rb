@@ -1,12 +1,11 @@
 require 'date'
 require_relative "date_range"
-require_relative "hotel_controller"
+# require_relative "hotel_controller"
 
 module Hotel
-  
   class Reservation
     STANDARD_ROOM_PRICE = 200
-    attr_reader :start_date, :end_date, :date_range :room :total_cost
+    attr_reader :start_date, :end_date, :date_range, :room, :total_cost
 
     def initialize(start_date:, end_date:, room:nil)
       @room = room
@@ -20,7 +19,7 @@ module Hotel
 
     def in_date_range?(date)
       return @date_range.in_date_range?(date)
-    end
+    end 
 
   end
 end

@@ -11,7 +11,9 @@ describe Hotel::Reservation do
 
       new_reservation = Hotel::Reservation.new(@start_date, @end_date, nil)
 
-      expect{ new_reservation }.must_raise StandardError
+      expect{ 
+        new_reservation
+       }.must_raise StandardError
       end
     end
 
