@@ -1,40 +1,59 @@
-# require_relative "test_helper"
+require_relative "test_helper"
 
-# describe Hotel::HotelController do
-#   before do
-#     @hotel = Hotel::HotelController.new
-#   end 
+describe Hotel::HotelController do
+  before do
+    @hotel = Hotel::HotelController.new
+  end 
 
-#   describe "Initializer" do    
-#     before do
-#       @rooms = []
-#       @reservations = [] 
+  describe "Initializer" do    
+    before do
+      @rooms = []
+      @reservations = [] 
 
-#       (1..20).each do |number|
-#         @rooms << number
-#       end
-#     end
+      (1..20).each do |number|
+        @rooms << number
+      end
+    end
 
-#     it "populates an array with room numbers" do
-#       expect(@rooms[0]).must_be_kind_of Integer
-#     end
+    it "populates an array with room numbers" do
+      expect(@rooms[0]).must_be_kind_of Integer
+    end
 
-#     it "returns an array" do
-#       expect(@rooms).must_be_kind_of Array
-#     end
+    it "returns an array" do
+      expect(@rooms).must_be_kind_of Array
+    end
 
-#     it "lists 20 rooms in the rooms array" do
-#       expect(@rooms.length).must_equal 20
-#     end
-#   end
+    it "returns an array" do
+      expect(@rooms).must_be_kind_of Array
+    end
+
+    it "lists 20 rooms in the rooms array" do
+      expect(@rooms.length).must_equal 20
+    end
+  end
+
+  describe "reserve_room" do
+    before do
+      @hotel = Hotel::HotelController.new
+      @hotel.reserve_room("2019-8-25", "2019-8-30")
+      @hotel.reserve_room("2019-8-14", "2019-8-31") 
+    end
+
+    it "returns all the reservations" do
+      expect(@hotel.reservations.length).must_equal 2
+    end
+    
+  end
+end
+
 
 #   describe "reserve_room" do
 #     it "takes two Date objects and returns a Reservation" do
-#       start_date = Date.parse("2016/8/4")
-#       end_date = Date.parse("2016/8/6")
+#       start_date = "2016-8-4"
+#       end_date = "2016-8-6"
 #       selected_room = @reservations
       
-#       new_reservation = Hotel::Reservation.new(start_date, end_date, selected_room)
+#       new_reservation = Hotel::Reservation.new(start_date, end_date, @selected_room)
 
 #       expect(new_reservation).must_be_kind_of Hotel::Reservation
 #     end
@@ -51,8 +70,8 @@
 #     end
 
 #     it "makes a new instance of Reservation" do
-#       start_date = Date.parse("2016/8/4")
-#       end_date = Date.parse("2016/8/6")
+#       start_date = "2016-8-4"
+#       end_date = "20168-6"
 #       new_hotel = Hotel::HotelController.new
 #       # new_reservation = Hotel::Reservation.new(start_date, end_date, nil)
 
@@ -64,8 +83,8 @@
 #     end
 
 #     it "does not select a room if selected_room has the value of nil" do
-#       start_date = Date.parse("2016/8/4")
-#       end_date = Date.parse("2016/8/6")
+#       start_date = Date("2016/8/4")
+#       end_date = Date("2016/8/6")
 #       selected_room = @room
 #       new_hotel = Hotel::HotelController.new
 #       new_reservation = Hotel::Reservation.new(start_date, end_date, selected_room)
