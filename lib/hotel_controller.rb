@@ -6,7 +6,7 @@ require_relative "date_range"
 
 module Hotel
   class HotelController
-    attr_reader :reservation, :date_range, :rooms, :reservations
+    attr_reader :rooms, :reservations
 
     # Wave 1
     def initialize
@@ -21,14 +21,15 @@ module Hotel
 
     def reserve_room(start_date, end_date)
       # start_date and end_date should be instances of class Date
-      selected_room = available_rooms_by_date_range(start_date, end_date).sample #initially started as @room.sample
+      selected_room = find_available_room(start_date, end_date).sample #initially started as @room.sample
+      raise StandardError.new("There are no available rooms.") if selected_room.nil? 
 
-      if selected_room.nil?
-        raise StandardError, "There are no available rooms."
-      end
-
-      new_reservation = Hotel::Reservation.new(start_date, end_date, selected_room) #start_date need @?
+      new_reservation = Hotel::Reservation.new(
+        start_date: start_date, 
+        end_date: end_date, 
+        room: selected_room) #start_date need @?
       @reservations << new_reservation
+      return new_reservation
     end
 
     def reservations_by_date(date)
