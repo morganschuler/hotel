@@ -4,16 +4,18 @@ What classes does each implementation include? Are the lists the same?
 Write down a sentence to describe each class.
   CartEntry: Takes care of one initial item being put in each shopping vart/ 
   ShoppingCart: Collects the list of all items added to the shopping cart. In Implementation B, it creates a sub-total of the price.
-  Order: Sums all of the items in the cart and calculates total price with sales tax.
+  Order: Instantiates ShoppingCart and sums all of the items in the cart and calculates total price with sales tax.
 
 
 How do the classes relate to each other? It might be helpful to draw a diagram on a whiteboard or piece of paper.
 
+In IMP.B, order has a ShoppingCart instance and in IMP.A ShoppingCart has a CartEntry instance.
+
 
 
 What data does each class store? How (if at all) does this differ between the two implementations?
-  CartEntry: stores the quantity and the unit price of each individual object. In     implementation B, it returns the price based on the cost/quantity of the item.
-  ShoppingCart: Stores an array of the list of entries into the shopping cart. In     Implementation B, it returns the sum of the prices of all of the entries in the   shopping cart.
+  CartEntry: stores the quantity and the unit price of each individual object. 
+  ShoppingCart: Stores an array of the list of entries into the shopping cart. 
   Order: Order is similar in both classes, but rather than summing the items in the last method in order, it access the subtotals it created in the ShoppingCart class.
 
 What methods does each class have? How (if at all) does this differ between the two implementations?
