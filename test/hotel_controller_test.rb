@@ -1,50 +1,66 @@
 require_relative "test_helper"
 
-describe Hotel::HotelController do
-  before do
-    @hotel = Hotel::HotelController.new
-  end 
-
-  describe "Initializer" do    
-    before do
-      @rooms = []
-      @reservations = [] 
-
-      (1..20).each do |number|
-        @rooms << number
-      end
+describe "HotelController class" do
+  describe "HotelController instantiation" do
+    it "is an instance of Reservation" do
+      expect(Hotel::HotelController.new).must_be_kind_of Hotel::HotelController
     end
-
-    it "populates an array with room numbers" do
-      expect(@rooms[0]).must_be_kind_of Integer
+    it "returns array of all the rooms" do
+      hotel = Hotel::HotelController.new
+      expect(hotel.rooms).must_be_kind_of Array
     end
-
-    it "returns an array" do
-      expect(@rooms).must_be_kind_of Array
-    end
-
-    it "returns an array" do
-      expect(@rooms).must_be_kind_of Array
-    end
-
-    it "lists 20 rooms in the rooms array" do
-      expect(@rooms.length).must_equal 20
+    it "reserves a room" do
+      hotel = Hotel::HotelController.new
+      expect(hotel.reserve_room("2019-2-23", "2019-2-25")).must_be_kind_of Hotel::Reservation
     end
   end
 
-  describe "reserve_room" do
-    before do
-      @hotel = Hotel::HotelController.new
-      @hotel.reserve_room("2019-8-25", "2019-8-30")
-      @hotel.reserve_room("2019-8-14", "2019-8-31") 
-    end
 
-    it "returns all the reservations" do
-      expect(@hotel.reservations.length).must_equal 2
-    end
+# describe Hotel::HotelController do
+#   before do
+#     @hotel = Hotel::HotelController.new
+#   end 
+
+#   describe "Initializer" do    
+#     before do
+#       @rooms = []
+#       @reservations = [] 
+
+#       (1..20).each do |number|
+#         @rooms << number
+#       end
+#     end
+
+#     it "populates an array with room numbers" do
+#       expect(@rooms[0]).must_be_kind_of Integer
+#     end
+
+#     it "returns an array" do
+#       expect(@rooms).must_be_kind_of Array
+#     end
+
+#     it "returns an array" do
+#       expect(@rooms).must_be_kind_of Array
+#     end
+
+#     it "lists 20 rooms in the rooms array" do
+#       expect(@rooms.length).must_equal 20
+#     end
+#   end
+
+#   describe "reserve_room" do
+#     before do
+#       @hotel = Hotel::HotelController.new
+#       @hotel.reserve_room("2019-8-25", "2019-8-30")
+#       @hotel.reserve_room("2019-8-14", "2019-8-31") 
+#     end
+
+#     it "returns all the reservations" do
+#       expect(@hotel.reservations.length).must_equal 2
+#     end
     
-  end
-end
+#   end
+# end
 
 
 #   describe "reserve_room" do
