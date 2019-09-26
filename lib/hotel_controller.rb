@@ -21,13 +21,13 @@ module Hotel
 
     def reserve_room(start_date, end_date)
       # start_date and end_date should be instances of class Date
-      selected_room = find_available_room(start_date, end_date).sample #initially started as @room.sample
-      raise StandardError.new("There are no available rooms.") if selected_room.nil? 
+      selected_rooms = find_available_room(start_date, end_date).sample #initially started as @room.sample
+      raise StandardError.new("There are no available rooms.") if selected_rooms.nil? 
 
       new_reservation = Hotel::Reservation.new(
         start_date: start_date, 
         end_date: end_date, 
-        room: selected_room) #start_date need @?
+        room: selected_rooms) #start_date need @?
       @reservations << new_reservation
       return new_reservation
     end
@@ -46,7 +46,7 @@ module Hotel
       reserved_rooms = []
       @reservations.each do |reservation|
         if reservation.date_range.dates_overlap?(start_date, end_date)
-          reserved_rooms << reservation.selected_room #room?
+          reserved_rooms << reservation.room #room?
         end
       end
       return reserved_rooms
