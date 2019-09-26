@@ -40,3 +40,6 @@ I think IMP B does because it contains the price for each class within itself, u
 Bonus question once you've read Metz ch. 3: Which implementation is more loosely coupled?
 
 I think IMP is less tightly coupled. It does not directly depend on other classes as does IMP A to find the total price.
+
+
+My code: In my original code, my classes are very strongly coupled, and they call upon eachother across classes. To improve my design while refactoring, I would like to ensure that the classes only have single responsibility. 
