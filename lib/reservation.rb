@@ -1,6 +1,6 @@
 require 'date'
 require_relative "date_range"
-# require_relative "hotel_controller"
+require_relative "hotel_controller"
 
 module Hotel
   class Reservation
@@ -14,29 +14,10 @@ module Hotel
     
   
     def calculate_cost
-      return nights * STANDARD_ROOM_PRICE
+    total = date_range.nights * STANDARD_ROOM_PRICE
+    return total.to_i
     end
-
-    def in_date_range?(date)
-      return @date_range.in_date_range?(date)
-    end 
 
   end
 end
 
-#oRiginal code removed to decouple
- # def start_date
-    #   @date_range.start_date
-    # end
-
-    # def end_date
-    #   @date_range.end_date
-    # end
-
-    # def nights
-    #   return @date_range.nights
-    # end
-
-        # def valid_date?(date)
-    #   return date.class == Date
-    # end 
