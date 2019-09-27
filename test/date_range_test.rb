@@ -16,9 +16,9 @@ describe "Hotel::DateRange class" do
     start_date = "2019-01-15"
     end_date = "2019-01-10"
 
-    expect do
+    expect{
       Hotel::DateRange.new(start_date, end_date)
-    end.must_raise ArgumentError
+    }.must_raise ArgumentError
   end
 
   it "returns a false if the date is not included in the range" do
