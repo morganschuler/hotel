@@ -1,4 +1,10 @@
-# Refactors
+# (Original)Refactors
 
 # Add in more edge cases for tests
+  #added in additional tests and restructured tests
+
 # Resolve errors in hotel_controller_test
+    #Resolved!
+
+New refactors:
+  Implement block system for price
