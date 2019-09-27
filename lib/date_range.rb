@@ -13,10 +13,6 @@ module Hotel
       end
     end
 
-    # def in_date_range?(date)
-    #   return date >= start_date && date <= end_date
-    # end
-
     def range 
       return @range = (@start_date...@end_date)
     end

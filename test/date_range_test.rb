@@ -35,39 +35,17 @@ describe "Hotel::DateRange class" do
 
   it "returns true when the reservation overlaps the range" do
     expect(@DateRange.dates_overlap?("2019-10-05", "2019-10-11")).must_equal true
+    expect(@DateRange.dates_overlap?("2019-10-04", "2019-10-10")).must_equal true
+    expect(@DateRange.dates_overlap?("2019-10-06", "2019-10-08")).must_equal true
+    expect(@DateRange.dates_overlap?("2019-10-05", "2019-10-10")).must_equal true
+    expect(@DateRange.dates_overlap?("2019-10-10", "2019-10-30")).must_equal true
   end
 
   it "returns false when the reservation doesn't overlap with the range" do
     expect(@DateRange.dates_overlap?("2019-10-12", "2019-10-15")).must_equal false
+    expect(@DateRange.dates_overlap?("2019-10-01", "2019-10-02")).must_equal false
+    expect(@DateRange.dates_overlap?("2019-10-12", "2019-10-15")).must_equal false
   end
-
 
   end
 end
-
-
-
-
-
-
-
-# it "Can be initialized with two dates" do
-#   @start_date = Date.parse("2017/01/01")
-#   @end_date = Date.parse("2017/01/03")
-
-#   range = Hotel::DateRange.new(@start_date, @end_date)
-
-#   expect(range.start_date).must_equal @start_date
-#   expect(range.end_date).must_equal @end_date
-# end
-# end
-
-# describe "in_date_range?" do
-# it "determines whether a date is in a given range" do
-#   start_date = Date.parse("2016/8/4")
-#   end_date = Date.parse("2016/8/6")
-#   date = Date.parse("2016/8/7")
-#   new_range = Hotel::DateRange.new(start_date, end_date)
-
-#   expect(new_range).must_include date
-# end 
