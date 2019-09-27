@@ -42,4 +42,4 @@ Bonus question once you've read Metz ch. 3: Which implementation is more loosely
 I think IMP is less tightly coupled. It does not directly depend on other classes as does IMP A to find the total price.
 
 
-My code: In my original code, my classes are very strongly coupled, and they call upon eachother across classes. To improve my design while refactoring, I would like to ensure that the classes only have single responsibility. 
+My code: In my original code, my classes are very strongly coupled, and they call upon eachother across classes. To improve my design while refactoring, I would like to ensure that the classes only have single responsibility. With my refactors the only dependency is between the Reservation and DateRange classes to determine the number of nights which I think makes sense in this usage.
